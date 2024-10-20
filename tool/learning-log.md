@@ -6,7 +6,7 @@
 
 ---
 
-### X/X/XX:
+### 10/19/2024:
 - To set up Kaboom, copy the starter code for Kaboom in the `<script>` section.
 ``` JS
 <script src="https://unpkg.com/kaboom@3000.0.1/dist/kaboom.js"></script>
