@@ -23,7 +23,7 @@ loadSprite("amongUsRed", "sprites/amongUsRed.jpg");
 
 - Make a variable for the sprite and give it properties.
 - `add()` assemble a game object from a list of components.
-- `sprite()` which sprite will this variable will be.
+- `sprite()` which sprite will this variable be.
 - `pos`() where this sprite show up. What goes inside the parenthesis is the `x-coordinate` and `y-coordinate`.
 - `scale()` change the size of the variale.
 - `"amongUs"` is a tag, it describe the behaviors for a group of objects. Multiple variables can have the same tag. A variable can have multiple tags. (I think it is like a class in CSS).
