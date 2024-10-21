@@ -16,10 +16,11 @@ kaboom();
 </scirpt>
 ```
 
-- Load a sprite from an image. The `amongUsRed` is the sprite name, the `sprites/amongUsRed.jpg` is the sprite image.
+- Load a sprite from an image using `loadSprite()`. The `amongUsRed` is the sprite name, the `sprites/amongUsRed.jpg` is the sprite image.
 ``` JS
 loadSprite("amongUsRed", "sprites/amongUsRed.jpg");
 ```
+At first, I copied the code `loadSprite("bean", "sprites/bean.png")` from the Kaboom website, but when I run the code, it pop up error and said cannot find `sprites/bean.png`, so I made a `sprites` folder, upload an imgae myself, and change the name of the image.
 
 - Make a variable for the sprite and give it properties.
 - `add()` assemble a game object from a list of components.
@@ -36,7 +37,10 @@ const amongUsRed = add([
 )];
 ```
 - `destory()` removes the game object. What goes inside the parenthesis is the game object name/variable. `destory(amongUsRed)`.
+   - I gave a sprite a tag called `"amongUs"` and wrote `destory("amongUs")` but it pop up `script error` when I run the code, so I think you can only put in variable in the parenthesis.
 - `destoryAll()` removes all game object if nothing is specify in the parenthesis. If a tag is specify, then it removes all variables with that tag. `destoryAll("amongUs")`.
+    - I made 3 sprites and gave 2 of the them same tag `"amongUs"`, and the sprites with the tag `"amongUs"` did not show up when I run this code.
+    - I command out this code and wrote a new code `destoryAll()` and nothing showed up.
 - `rotate()` rotate the variable. What goes inside the parenthesis is the degree. `0-360`.
 - `color(#,#,#)` change the color of the variable, use `RGB`, `color(R, G, B)`.
 
