@@ -30,14 +30,6 @@
             // load a sprite "bean" from an image
             loadSprite("amongUsRed", "sprites/amongUsRed.jpg")
 
-            const amongUsRed = add([
-                sprite("amongUsRed"),
-                pos(80, 40),
-                scale(0.1),
-                color(255, 180, 255),
-                area(),
-                body(),
-            ]);
 
             const amongUsGreen = add([
                 sprite("amongUsRed"),
@@ -48,18 +40,7 @@
                 "amongUs"
             ]);
 
-            const amongUsBlue = add([
-                sprite("amongUsRed"),
-                pos(100, 50),
-                scale(0.1),
-                color(255, 180, 180),
-                area(),
-                body(),
-                rotate(30),
-                "amongUs"
-            ]);
-
-            destroy(amongUsRed);
+            destroy("amongUs");
 
 
         </script>
