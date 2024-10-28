@@ -45,8 +45,43 @@ const amongUsRed = add([
 - `color(#,#,#)` change the color of the variable, use `RGB`, `color(R, G, B)`.
 
 
-### X/X/XX:
-* Text
+### 10/23/24:
+- `text()` add a text. A string should be inside the parenthesis.
+    - When I put `text(Score:0)`, nothing shows up. Not even the sprite.
+- `area()` generates collider area from shape and enables collision detection.
+- `body()` makes the object "solid".
+- `move()` make a sprite move towards a direction infinitely.
+
+``` JS
+const amongUsRed = add([
+    sprite("amongUs"),
+    pos(100, 400),
+    area(),
+    scale(0.1),
+    body(),
+    move(+5, 20)
+])
+
+const amongUsGreen = add([
+    sprite("amongUs"),
+    pos(290, 400),
+    scale(0.1),
+    area(),
+    // body(),
+    color(0, 0, 255),
+    "amongUs"
+]);
+```
+- At first I try to put "move(right, 20)" because on Kaboom, it says "direction" for the first input. But when I run the code, it says cannot define the variable "right". Then I read it again and see it says "direction: number", so I input "+5" because I want it to go right way. But I don't know why I put "-5" it won't go left. When the sprite move, it pushes the other sprite that is stationary and makes it move with it. So I commented the "body ()" for the second sprite to make it not have a solid shape. And when I run the code,  the first sprite go right through the second sprite.
+
+### 10/27/24
+- I continue my tinker on `move(#,#)`. I change the signs of the numbers to see the difference.
+    - The first number makes the sprite gradually moving up or down while moving towards a direction.
+        - The weird thing is that the sprite will go down no matter what sign I put - `move(+10,20)` or `move(-10,20)`.
+        - But it will go up if I put no sign - `move(10,20)`.
+        - `move(0,20)` makes it not go up or down.
+    - The second number is the speed. Big number = move faster, small number = move slower, 0 = not moving at all.
+        - `+` sign or no sign makes it go right `move(+10,20)`, `-` sign makes it go left `move(-10,20)`. 
 
 
 <!--
