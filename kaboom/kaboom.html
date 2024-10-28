@@ -28,19 +28,26 @@
             kaboom();
 
             // load a sprite "bean" from an image
-            loadSprite("amongUsRed", "sprites/amongUsRed.jpg")
+            loadSprite("amongUs", "sprites/amongUsRed.jpg")
 
+            const amongUsRed = add([
+                sprite("amongUs"),
+                pos(100, 400),
+                area(),
+                scale(0.1),
+                body(),
+                move(20, 0),
+            ])
 
             const amongUsGreen = add([
-                sprite("amongUsRed"),
+                sprite("amongUs"),
                 pos(290, 400),
                 scale(0.1),
                 area(),
-                body(),
+                // body(),
+                color(220, 75, 25),
                 "amongUs"
             ]);
-
-            destroy("amongUs");
 
 
         </script>
