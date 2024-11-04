@@ -4,7 +4,7 @@
 ## My Game
 For this year's Freedom Project, I decided to work with my friends to create a game about spending cat food to obtain different rarity of cats by chance. We separated the game into two parts, and we split into two teams to create each part. After we finish with our part of the game, we will combine them together at the end of our Freedom Project. I am doing Part A of the game with Ellen, and Xue and Katee are doing Part B of the game.
 
-In **Part A**, the user will control a cat to move around a 2D tile map to collect cat food. The cat food will randomly appear on the map, and the user will control the cat using keyboard keys to get the cat food. Once the user get that cat food, another cat food will appear on the map in a different location. There are boosts on the map that help the user get the cat food, and obstacles that make the game harder.
+In **Part A**, the user will control a cat to move around a 2D tile map to collect cat food. Each round will be 1 minute. During this 1 minute, the cat food will randomly appear on the map, and the user will control the cat using keyboard keys to get as many cat food as they can. Once the user get that cat food, another cat food will appear on the map in a different location. There are boosts on the map that help the user get the cat food, and obstacles that make the game harder.
 
 In **Part B**, the user will use the cat food they collected to obtain cats. There will be a gunball like machine that gives out a cat once the user insert the amount of cat food needed. There are 15 cats in total, and these cats are divided into three rarities. The probability to obtain a rarity of cat is different- *Rare* cats: 75%, *Super Rare* cats: 20%, *Super Super Rare* cats: 5%. There is a chance for the user to obtain the same cat more than once. However, if the user pulls up to 50 tries and did not get any SSR cat, they are guaranteed to get a random SSR cat.
 
@@ -12,7 +12,7 @@ In **Part B**, the user will use the cat food they collected to obtain cats. The
 My tool is [**Kaboom**](https://kaboomjs.com/). I decided to use Kaboom because I learned about sprites on **Intro to CS** in 9th grade. I know that for my part of the game, I can use sprites to create the elements for my game. Kaboom allows me to create a sprite and add functions to it. I am going to use Kaboom to create a sprite that the user can interact with and make the sprites do something when they interact with other sprites.
 
 ### Kaboom
-I learned how to load a sprite from an image using `loadSprite()` and create a sprite using `add()` and `sprite()`.
+I tinker with Kaboom in a [file](../kaboom/kaboom.html). I learned how to load a sprite from an image using `loadSprite()` and create a sprite using `add()` and `sprite()`.
 ``` JS
 const amongUsRed = add([
     sprite("amongUsRed"),
@@ -64,10 +64,15 @@ The `move(#,#)`
 - The second number is the speed. Big number = move faster, small number = move slower, 0 = not moving at all.
     - "+" sign or no sign makes it go right `move(10,+20)`, - sign makes it go left `move(10,-20)`.
 
+## EDP
+I think I am in the **Research** and **Brainstorm** steps of the EDP. I am learning on my tool and finding things that I can use in my game. I am also brainstorming and adjusting my game. I am thinking about what my game should include, and how should the elements work.
 
+## Skills
+### Communication
+I am doing my Freedom Project with my friends. We communicate on what our game should be, and who should do each part. We have to discuss and come to an agreement on what each part should include. For example, we talked about how many cats we should have in Part B, and how long should each round be in Part A.
 
-
-
+### How to learn
+I learned Kaboom on myself. I looked through the documentation and tinker in my own HTML file to figure out what each function do. When the documentation did not specify each part of the function, I need to change around the code to come up a definition myself. For example, the documentation did not tell me what each number in the the `move()` function does. I need to change around to find it myself.
 
 
 [Next](entry02.md)
