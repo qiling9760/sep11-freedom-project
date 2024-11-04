@@ -81,7 +81,8 @@ const amongUsGreen = add([
         - But it will go up if I put no sign - `move(10,20)`.
         - `move(0,20)` makes it not go up or down.
     - The second number is the speed. Big number = move faster, small number = move slower, 0 = not moving at all.
-        - `+` sign or no sign makes it go right `move(+10,20)`, `-` sign makes it go left `move(-10,20)`. 
+        - `+` sign or no sign makes it go right `move(+10,20)`, `-` sign makes it go left `move(-10,20)`.
+        
 
 
 <!--
