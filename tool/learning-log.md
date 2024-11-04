@@ -34,7 +34,7 @@ const amongUsRed = add([
     pos(80, 40),
     scale(0.1),
     "amongUs"
-)];
+]);
 ```
 - `destory()` removes the game object. What goes inside the parenthesis is the game object name/variable. `destory(amongUsRed)`.
    - I gave a sprite a tag called `"amongUs"` and wrote `destory("amongUs")` but it pop up `script error` when I run the code, so I think you can only put in variable in the parenthesis.
