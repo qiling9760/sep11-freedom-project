@@ -36,16 +36,43 @@
                 area(),
                 scale(0.1),
                 body(),
-                move(20, 0),
-            ])
+                move(0, 100),
+            ]);
 
-            const amongUsGreen = add([
+
+            // amongUsRed.onCollide("amongUs", (amongUsOrange) => {
+            //     destroy(amongUsOrange)
+            // })
+            // amongUsRed.onCollide("amongUs", () => {
+            //     destroy(amongUsOrange)
+            // })
+            // amongUsRed.onCollide((amongUsOrange) => {
+            //     destroy(amongUsOrange)
+            // })
+            // amongUsRed.onCollide("",() => {
+            //     destroy(amongUsOrange)
+            // })
+            // amongUsRed.onCollide((amongUsGreen) => {
+            //     destroyAll()
+            // })
+
+            const amongUsOrange = add([
                 sprite("amongUs"),
                 pos(290, 400),
                 scale(0.1),
                 area(),
-                // body(),
+                body(),
                 color(220, 75, 25),
+                "amongUs"
+            ]);
+
+            const amongUsGreen = add([
+                sprite("amongUs"),
+                pos(650, 400),
+                scale(0.1),
+                area(),
+                body(),
+                color(120, 175, 25),
                 "amongUs"
             ]);
 
