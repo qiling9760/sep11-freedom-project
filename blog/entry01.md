@@ -62,7 +62,7 @@ The `move(#,#)`
     - The sprite will go down no matter what sign - `move(+10,20)` or `move(-10,20)` and go up when there is no sign - `move(10,20)`.
     - `move(0,20)` makes it not go up or down.
 - The second number is the speed. Big number = move faster, small number = move slower, 0 = not moving at all.
-    - "+" sign or no sign makes it go right `move(10,+20)`, - sign makes it go left `move(10,-20)`.
+    - `+` sign or no sign makes it go right `move(10,+20)`, `-` sign makes it go left `move(10,-20)`.
 
 ## EDP
 I think I am in the **Research** and **Brainstorm** steps of the EDP. I am learning on my tool and finding things that I can use in my game. I am also brainstorming and adjusting my game. I am thinking about what my game should include, and how should the elements work.
