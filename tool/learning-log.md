@@ -34,7 +34,7 @@ const amongUsRed = add([
     pos(80, 40),
     scale(0.1),
     "amongUs"
-)];
+]);
 ```
 - `destory()` removes the game object. What goes inside the parenthesis is the game object name/variable. `destory(amongUsRed)`.
    - I gave a sprite a tag called `"amongUs"` and wrote `destory("amongUs")` but it pop up `script error` when I run the code, so I think you can only put in variable in the parenthesis.
@@ -81,8 +81,7 @@ const amongUsGreen = add([
         - But it will go up if I put no sign - `move(10,20)`.
         - `move(0,20)` makes it not go up or down.
     - The second number is the speed. Big number = move faster, small number = move slower, 0 = not moving at all.
-        - `+` sign or no sign makes it go right `move(+10,20)`, `-` sign makes it go left `move(-10,20)`.
-        
+        - `+` sign or no sign makes it go right `move(10,+20)`, `-` sign makes it go left `move(10,-20)`.
 
 
 <!--
