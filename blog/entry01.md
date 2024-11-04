@@ -65,7 +65,7 @@ The `move(#,#)`
     - `+` sign or no sign makes it go right `move(10,+20)`, `-` sign makes it go left `move(10,-20)`.
 
 ## EDP
-I think I am in the **Research** and **Brainstorm** steps of the EDP. I am learning on my tool and finding things that I can use in my game. I am also brainstorming and adjusting my game. I am thinking about what my game should include, and how should the elements work.
+I think I am in the **Research** and **Brainstorm** steps of the EDP. I am learning my tool and finding things that I can use in my game. I am also brainstorming and adjusting my game. I am thinking about what my game should include, and how should the elements work.
 
 ## Skills
 ### Communication
