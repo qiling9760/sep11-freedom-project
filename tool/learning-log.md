@@ -82,6 +82,26 @@ const amongUsGreen = add([
         - `move(0,20)` makes it not go up or down.
     - The second number is the speed. Big number = move faster, small number = move slower, 0 = not moving at all.
         - `+` sign or no sign makes it go right `move(10,+20)`, `-` sign makes it go left `move(10,-20)`.
+### 11/11/24
+- I am learning about `.onCollide("", () => {})`. I want to know what should I put inside `""`, `()`, and `{}`, and what happens if I change the things inside them. `.onCollide` only works when the sprites have both the `area()` and `body`. Because if the sprites don't have the body, they will go through each other and do not touch, so no collision. 
+    - `""` Put tags inside quotation marks.
+    - `()` Put variable name inside parenthesis.
+    - `{}` Put what happens when variables collide inside currly brackets.
+``` JS
+amongUsRed.onCollide("amongUs", () => {
+            destroy(amongUsOrange)
+})
+ ```
+If `amongUsRed` collide with sprites that have the tag `"amongUs"`, `amongUsOrange` will be destoryed. I can write nothing or anything in the parenthesis, it work the same thing as long as I have the tag. But I need to have the parenthesis or else the screen goes blank.
+
+``` JS
+amongUsRed.onCollide((amongUsOrange) => {
+                destroy(amongUsGreen)
+})
+```
+If `amongUsRed` collide with the sprite `amongUsOrange`, `amongUsGreen` will be destoryed. I don't need the `""` in front of the `()`.
+
+
 
 
 <!--

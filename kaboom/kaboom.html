@@ -39,23 +39,6 @@
                 move(0, 100),
             ]);
 
-
-            // amongUsRed.onCollide("amongUs", (amongUsOrange) => {
-            //     destroy(amongUsOrange)
-            // })
-            // amongUsRed.onCollide("amongUs", () => {
-            //     destroy(amongUsOrange)
-            // })
-            // amongUsRed.onCollide((amongUsOrange) => {
-            //     destroy(amongUsOrange)
-            // })
-            // amongUsRed.onCollide("",() => {
-            //     destroy(amongUsOrange)
-            // })
-            // amongUsRed.onCollide((amongUsGreen) => {
-            //     destroyAll()
-            // })
-
             const amongUsOrange = add([
                 sprite("amongUs"),
                 pos(290, 400),
@@ -63,6 +46,7 @@
                 area(),
                 body(),
                 color(220, 75, 25),
+                // move(0, 100),
                 "amongUs"
             ]);
 
@@ -73,9 +57,34 @@
                 area(),
                 body(),
                 color(120, 175, 25),
+                // "amongUs"
+            ]);
+
+            const amongUsYellow = add([
+                sprite("amongUs"),
+                pos(1000, 400),
+                scale(0.1),
+                area(),
+                body(),
+                color(200, 200, 25),
                 "amongUs"
             ]);
 
+            amongUsRed.onCollide("amongUs",(ahfaava) => {
+                destroy(amongUsGreen)
+            })
+            // amongUsRed.onCollide("amongUs", () => {
+            //     destroy(amongUsOrange)
+            // })
+            // amongUsRed.onCollide((amongUsOrange) => {
+            //     destroy(amongUsOrange)
+            // })
+            // amongUsRed.onCollide((amongUsOrange) => {
+            //     destroy(amongUsGreen)
+            // })
+            // amongUsRed.onCollide((amongUsGreen) => {
+            //     destroyAll()
+            // })
 
         </script>
     </body>
