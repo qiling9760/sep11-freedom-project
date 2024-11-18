@@ -83,7 +83,7 @@ const amongUsGreen = add([
     - The second number is the speed. Big number = move faster, small number = move slower, 0 = not moving at all.
         - `+` sign or no sign makes it go right `move(10,+20)`, `-` sign makes it go left `move(10,-20)`.
 ### 11/11/24
-- I am learning about `.onCollide("", () => {})`. I want to know what should I put inside `""`, `()`, and `{}`, and what happens if I change the things inside them. `.onCollide` only works when the sprites have both the `area()` and `body`. Because if the sprites don't have the body, they will go through each other and do not touch, so no collision. 
+- I am learning about `.onCollide("", () => {})`. I want to know what should I put inside `""`, `()`, and `{}`, and what happens if I change the things inside them. `.onCollide` only works when the sprites have both the `area()` and `body`. Because if the sprites don't have the body, they will go through each other and do not touch, so no collision.
     - `""` Put tags inside quotation marks.
     - `()` Put variable name inside parenthesis.
     - `{}` Put what happens when variables collide inside currly brackets.
@@ -101,7 +101,17 @@ amongUsRed.onCollide((amongUsOrange) => {
 ```
 If `amongUsRed` collide with the sprite `amongUsOrange`, `amongUsGreen` will be destoryed. I don't need the `""` in front of the `()`.
 
+### 11/18/24
+- `.OnCollide("", ()=>{})`: The controlling sprite will destory the sprite it coliide with no matter what sprite it is when the variable in the parenthesis is the same as the variable in the `destory()` parenthesis inside the curly brackets.
+``` JS
+amongUsRed.onCollide((amongUsOrange) => {
+            destroy(amongUsOrange)
+})
+```
 
+- `onKeyDown("", () => {})`
+    - `""` Put keys inside quotation marks
+    - `{}` Put what happens when that key is hold down inside the curly brackets 
 
 
 <!--
