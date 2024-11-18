@@ -45,6 +45,7 @@
                 scale(0.1),
                 area(),
                 body(),
+                stay(),
                 color(220, 75, 25),
                 // move(0, 100),
                 // "amongUs"
@@ -57,7 +58,7 @@
                 area(),
                 body(),
                 color(120, 175, 25),
-                // "amongUs"
+                "amongUs"
             ]);
 
             const amongUsYellow = add([
@@ -67,11 +68,11 @@
                 area(),
                 body(),
                 color(200, 200, 25),
-                // "amongUs"
+                "amongUs"
             ]);
 
-            amongUsRed.onCollide((amongUsOrange) => {
-                destroy(amongUsOrange)
+            amongUsRed.onCollide("amongUs",() => {
+                destroy(amongUsGreen)
             })
             onKeyDown("left", () => {
                  amongUsRed.move(-100, 0)
@@ -82,11 +83,32 @@
             onKeyDown("right", () => {
                  amongUsRed.move(100, 0)
             })
+            onKeyDown("d", () => {
+                 amongUsRed.move(100, 0)
+            })
             onKeyDown("up",() => {
+                 amongUsRed.move(0, -100)
+            })
+            onKeyDown("w",() => {
                  amongUsRed.move(0, -100)
             })
             onKeyDown("down",() => {
                  amongUsRed.move(0, 100)
+            })
+            onKeyDown("s",() => {
+                amongUsRed.move(0, 100)
+            })
+
+
+            const score = add([
+                text("Score: 0"),
+                pos(24, 24),
+                { value: 0 },
+            ])
+
+            amongUsRed.onCollide("amongUs", () => {
+                score.value += 1
+                score.text = "Score:" + score.value
             })
 
         </script>
