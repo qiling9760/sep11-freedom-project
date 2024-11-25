@@ -34,21 +34,24 @@
                 sprite("amongUs"),
                 pos(100, 400),
                 area(),
-                scale(0.1),
+                scale(0.01),
                 body(),
-                // move(0, 100),
+                z(2),
+                offscreen({pause:false}),
+                "cat"
             ]);
 
             const amongUsOrange = add([
                 sprite("amongUs"),
-                pos(290, 400),
-                scale(0.1),
-                area(),
-                body(),
-                stay(),
+                pos(490, 300),
+                scale(0.2),
+                area({ scale: 1}),
+                z(1),
+                anchor("center"),
+                // body(),
                 color(220, 75, 25),
-                // move(0, 100),
                 // "amongUs"
+                "water"
             ]);
 
             const amongUsGreen = add([
@@ -61,55 +64,90 @@
                 "amongUs"
             ]);
 
-            const amongUsYellow = add([
-                sprite("amongUs"),
-                pos(1000, 400),
-                scale(0.1),
-                area(),
-                body(),
-                color(200, 200, 25),
-                "amongUs"
-            ]);
+            // const amongUsYellow = add([
+            //     sprite("amongUs"),
+            //     pos(1000, 400),
+            //     scale(0.1),
+            //     area(),
+            //     body(),
+            //     color(200, 200, 25),
+            //     "amongUs"
+            // ]);
 
-            amongUsRed.onCollide("amongUs",() => {
-                destroy(amongUsGreen)
-            })
+            // move in normal speed
+
             onKeyDown("left", () => {
-                 amongUsRed.move(-100, 0)
+                 amongUsRed.move(-500, 0)
             })
             onKeyDown("a", () => {
-                 amongUsRed.move(-100, 0)
+                amongUsRed.move(-500, 0)
             })
             onKeyDown("right", () => {
-                 amongUsRed.move(100, 0)
+                 amongUsRed.move(500, 0)
             })
             onKeyDown("d", () => {
-                 amongUsRed.move(100, 0)
+                 amongUsRed.move(500, 0)
             })
             onKeyDown("up",() => {
-                 amongUsRed.move(0, -100)
+                 amongUsRed.move(0, -500)
             })
             onKeyDown("w",() => {
-                 amongUsRed.move(0, -100)
+                 amongUsRed.move(0, -500)
             })
             onKeyDown("down",() => {
-                 amongUsRed.move(0, 100)
+                 amongUsRed.move(0, 500)
             })
             onKeyDown("s",() => {
-                amongUsRed.move(0, 100)
+                amongUsRed.move(0, 500)
             })
 
+            // move on water
 
-            const score = add([
-                text("Score: 0"),
+            // amongUsRed.onCollide("water", () => {
+            //     onKeyDown("w",() => {
+            //         amongUsRed.move(0, -10)
+            //     }),
+            //     onKeyDown("s",() => {
+            //         amongUsRed.move(0, 10)
+            //     }),
+            //     onKeyDown("d", () => {
+            //         amongUsRed.move(10, 0)
+            //     }),
+            //     onKeyDown("a", () => {
+            //         amongUsRed.move(-10, 0)
+            //     })
+            // })
+
+            // make a score
+            const catFood = add([
+                text("Cat food: 0"),
                 pos(24, 24),
                 { value: 0 },
             ])
 
-            amongUsRed.onCollide("amongUs", () => {
-                score.value += 1
-                score.text = "Score:" + score.value
-            })
+            var x = rand(width());
+            var y = rand(height());
+            var i = 0;
+            while(i<2){
+                amongUsRed.onCollide("amongUs",() => {
+                destroyAll("amongUs");
+                catFood.value += 1;
+                catFood.text = "Cat food:" + catFood.value;
+                add([
+                    sprite("amongUs"),
+                    pos(x, y),
+                    scale(0.1),
+                    area(),
+                    body(),
+                    "amongUs"
+                ]);
+                i++
+            })}
+
+
+
+
+
 
         </script>
     </body>

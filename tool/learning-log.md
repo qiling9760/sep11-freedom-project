@@ -111,7 +111,47 @@ amongUsRed.onCollide((amongUsOrange) => {
 
 - `onKeyDown("", () => {})`
     - `""` Put keys inside quotation marks
-    - `{}` Put what happens when that key is hold down inside the curly brackets 
+    - `{}` Put what happens when that key is hold down inside the curly brackets
+
+### 11/24/24
+``` JS
+onKeyDown("left", () => {
+    amongUsRed.move(-500, 0)
+})
+```
+When `left` is pressed down, the sprite will move left.
+- The `move(#,#)` inside the `onKeyDown` is different from inside the `add()`.
+- The first number makes the sprite move left or right. `-` makes it go left, no sign makes it go right.
+- The second number makes the sprite move up or down. `-` makes it go up, no sign makes it go down.
+
+
+``` JS
+const catFood = add([
+    text("Cat food: 0"),
+    pos(24, 24),
+    { value: 0 },
+])
+```
+- `text()` makes a text.
+- `value` assign the variable with an initial value.
+
+`onCollide` and `text` can be combined together to make a scoreboard to keep track of how many cat food the user collect.
+
+``` JS
+amongUsRed.onCollide("amongUs",() => {
+    destroyAll("amongUs");
+    catFood.value += 1;
+    catFood.text = "Cat food:" + catFood.value;
+})
+```
+
+
+
+
+
+
+
+
 
 
 <!--
