@@ -57,22 +57,14 @@
             const amongUsGreen = add([
                 sprite("amongUs"),
                 pos(650, 400),
+                anchor("center"),
                 scale(0.1),
                 area(),
                 body(),
                 color(120, 175, 25),
+                z(2),
                 "amongUs"
             ]);
-
-            // const amongUsYellow = add([
-            //     sprite("amongUs"),
-            //     pos(1000, 400),
-            //     scale(0.1),
-            //     area(),
-            //     body(),
-            //     color(200, 200, 25),
-            //     "amongUs"
-            // ]);
 
             // move in normal speed
 
@@ -125,29 +117,24 @@
                 { value: 0 },
             ])
 
-            var x = rand(width());
-            var y = rand(height());
-            var i = 0;
-            while(i<2){
-                amongUsRed.onCollide("amongUs",() => {
+            amongUsRed.onCollide("amongUs",() => {
                 destroyAll("amongUs");
                 catFood.value += 1;
                 catFood.text = "Cat food:" + catFood.value;
+                var x = rand(width());
+                var y = rand(height())
                 add([
                     sprite("amongUs"),
                     pos(x, y),
                     scale(0.1),
                     area(),
                     body(),
+                    color(120, 175, 25),
+                    anchor("center"),
+                    z(2),
                     "amongUs"
                 ]);
-                i++
-            })}
-
-
-
-
-
+            })
 
         </script>
     </body>
