@@ -169,7 +169,25 @@ amongUsRed.onCollide("amongUs",() => {
 ```
 `rand()` will make a random value between 0 and the value in the parenthesis. 
 
+### 12/8/24
+I made 4 stationary rectangles that wrap around the map, so my sprite cannot go out of the screen. 
+```
+add([
+    pos(0, 0),
+    rect(width(), 1),
+    outline(1),
+    area(),
+    body({ isStatic: true }),
+    "water"
+])
+```
 
+`body({ isStatic: true })`: This makes the sprite stationary, which means other sprits cannot go through or push it foward. 
+
+`rect(width(), 1)`: The first number is the width, the second number is the height. 
+
+`width()`: The screen's width - it is a number   
+`height()`: The screen's height - it is a number 
 
 
 
