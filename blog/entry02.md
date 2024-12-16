@@ -75,10 +75,34 @@ amongUsRed.onCollide("amongUs",() => {
     ]);
 })
 ```
+`rand()` make a random value between 0 and the value in the parenthesis.
+
+`z()`, the sprite will cover another sprite when its `z()` number is bigger than another sprite
 
 Whenever sprite A collide with sprite B, it destroy sprite B and add 1 point to the score board and create another sprite B in a different location. When I control sprite A to collide with the new sprite B, it will do the same thing - destroy sprite B, add 1 point, create another sprite B.
 
-### 
+### body({ isStatic: true })
+I tried to make walls wrap around the map, so the user would not accidentally go out of the map.
+
+``` JS
+add([
+    pos(0, 0),
+    rect(width(), 1),
+    outline(1),
+    area(),
+    body({ isStatic: true }),
+    "water"
+])
+```
+
+`body({ isStatic: true })`: This makes the sprite stationary, which means other sprits cannot go through or push it foward.
+
+`rect(width(), 1)`: The first number is the width, the second number is the height.
+
+`width()`: The screen's width - it is a number  
+`height()`: The screen's height - it is a number
+
+
 
 [Previous](entry01.md) | [Next](entry03.md)
 
