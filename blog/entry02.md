@@ -108,6 +108,53 @@ My Freedom Project goal for the winder break is to figure out how to make the ga
 ## EDP
 I think I am on the **Brainstorm** and **Plan** steps of the EDP because I already have an idea of how my game should work, and I need to find code that I can use to make the game function like what I want. I have been combining the code I learned to make them perform what I want for my game. 
 
+## Skills
+### Collaboration
+At first, I am stucked on the part where I tried to make the cat food appear at a different location after the last cat food got destoryed. 
+
+``` JS
+var x = rand(width());
+var y = rand(height())
+amongUsRed.onCollide("amongUs",() => {
+    destroyAll("amongUs");
+    catFood.value += 1;
+    catFood.text = "Cat food:" + catFood.value;
+    add([
+        sprite("amongUs"),
+        pos(x, y),
+        scale(0.1),
+        area(),
+        body(),
+        color(120, 175, 25),
+        anchor("center"),
+        z(2),
+        "amongUs"
+    ]);
+})
+```
+I did not know why my cat food did not show up in a different location after the previous one got destroyed, so I asked on Slack. I got help from Junhua Lai, and they told me it was because my `x` and `y` for the position were not updating, so my new cat food keep appearing in the same location. I moved the `x` and `y` into the `onCollide()`, and then it worked. 
+
+### Logical reasoning
+I need to make the cat move when the user is holding down their keyboard keys. I know that the first number in `move(#,#)` makes the sprite go left or right depend on the sign, and the second number makes the sprite go up or down depend on the sign. So, when I figured out `onKeyDown("left")` with the first number of `move(#,#)` to be negative can make the sprite go left,  I can figure out how to make the sprite go right, up, and down by just changing the sign of the numbers. 
+
+``` JS
+// go right
+onKeyDown("right", () => {
+    amongUsRed.move(500, 0)
+})
+```
+``` JS
+// go up
+onKeyDown("up",() => {
+    amongUsRed.move(0, -500)
+})
+```
+``` JS
+// go down
+onKeyDown("down",() => {
+    amongUsRed.move(0, 500)
+})
+```
 
 
 [Previous](entry01.md) | [Next](entry03.md)
