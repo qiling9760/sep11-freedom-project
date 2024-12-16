@@ -2,7 +2,7 @@
 ##### 12/9/24
 
 ## Context
-My game is an interactive game where the user can control the character to collect points. In my game, the character is a cat, and the points are the cat food. 
+My game is an interactive game where the user can control the character to collect points. In my game, the character is a cat, and the points are the cat food. I used functions from [kaboom](https://kaboomjs.com/) to make it work. 
 
 ## Tool
 ### onKeyDown and move
@@ -101,6 +101,9 @@ add([
 
 `width()`: The screen's width - it is a number  
 `height()`: The screen's height - it is a number
+
+## Goal
+My Freedom Project goal for the winder break is to figure out how to make the game end in 1 minute. I have searched on [kaboom](https://kaboomjs.com/), and I only found `timer()` that is related to time. I need to learn how it work, and what other functions it can combine with to make my game end in 1 min. 
 
 
 
