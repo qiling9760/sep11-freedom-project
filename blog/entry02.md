@@ -5,6 +5,7 @@
 My game is an interactive game where the user can control the character to collect points. In my game, the character is a cat, and the points are the cat food. 
 
 ## Tool
+### onKeyDown and move
 I want to allow the user to control the cat using keyboard keys. This involves two functions, `onKeyDown()` and `.move()`. 
 
 `onKeyDown()` means while a key is hold down, an action will be performed. 
@@ -29,7 +30,55 @@ When I use `move(#,#)` in `add()`, the first number makes the sprite gradually m
 
 The second number in `move()` in `add()` makes it go left or right. `+` sign or no sign makes it go right, `-` sign makes it go left. But in `onKeyDown()`, it is used to move the sprite up or down. `-` makes it go up, no sign makes it go down.
 
+### onCollide and destroy
+I want to make the cat collect the cat food, which means I need to make the cat food disappear and the score board add 1 when the cat collide with the cat food. 
 
+I used `onCollide()` and `destroy()` to make it look like the cat food is collected by the cat. 
+
+``` JS
+amongUsRed.onCollide((amongUsOrange) => {
+    destroy(amongUsGreen)
+})
+```
+
+This will make the cat food disappear when it collide with the cat. 
+
+I need a score board to keep track of how many cat food the user collected. I used `text()` for the score board. 
+
+``` JS
+const catFood = add([
+    text("Cat food: 0"),
+    pos(24, 24),
+    { value: 0 },
+])
+```
+
+I want the cat to destory cat food and add 1 point to the score board every time it collide with the cat food. A new cat food will appear when the last cat food got destoryed. 
+
+``` JS
+amongUsRed.onCollide("amongUs",() => {
+    destroyAll("amongUs");
+    catFood.value += 1;
+    catFood.text = "Cat food:" + catFood.value;
+    var x = rand(width());
+    var y = rand(height())
+    add([
+        sprite("amongUs"),
+        pos(x, y),
+        scale(0.1),
+        area(),
+        body(),
+        color(120, 175, 25),
+        anchor("center"),
+        z(2),
+        "amongUs"
+    ]);
+})
+```
+
+Whenever sprite A collide with sprite B, it destroy sprite B and add 1 point to the score board and create another sprite B in a different location. When I control sprite A to collide with the new sprite B, it will do the same thing - destroy sprite B, add 1 point, create another sprite B.
+
+### 
 
 [Previous](entry01.md) | [Next](entry03.md)
 
