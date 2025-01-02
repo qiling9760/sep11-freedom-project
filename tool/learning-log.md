@@ -145,7 +145,49 @@ amongUsRed.onCollide("amongUs",() => {
 })
 ```
 
+### 12/1/24
+Whenever sprite A collide with sprite B, it destroy sprite B and add 1 point to the score board and create another sprite B in a different location. When I control sprite A to collide with the new sprite B, it will do the same thing - destroy sprite B, add 1 point, create another sprite B.
+``` JS
+amongUsRed.onCollide("amongUs",() => {
+    destroyAll("amongUs");
+    catFood.value += 1;
+    catFood.text = "Cat food:" + catFood.value;
+    var x = rand(width());
+    var y = rand(height())
+    add([
+        sprite("amongUs"),
+        pos(x, y),
+        scale(0.1),
+        area(),
+        body(),
+        color(120, 175, 25),
+        anchor("center"),
+        z(2),
+        "amongUs"
+    ]);
+})
+```
+`rand()` will make a random value between 0 and the value in the parenthesis. 
 
+### 12/8/24
+I made 4 stationary rectangles that wrap around the map, so my sprite cannot go out of the screen. 
+```
+add([
+    pos(0, 0),
+    rect(width(), 1),
+    outline(1),
+    area(),
+    body({ isStatic: true }),
+    "water"
+])
+```
+
+`body({ isStatic: true })`: This makes the sprite stationary, which means other sprits cannot go through or push it foward. 
+
+`rect(width(), 1)`: The first number is the width, the second number is the height. 
+
+`width()`: The screen's width - it is a number   
+`height()`: The screen's height - it is a number 
 
 
 
