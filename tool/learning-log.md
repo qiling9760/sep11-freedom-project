@@ -171,7 +171,8 @@ amongUsRed.onCollide("amongUs",() => {
 
 ### 12/8/24
 I made 4 stationary rectangles that wrap around the map, so my sprite cannot go out of the screen. 
-```
+
+``` JS
 add([
     pos(0, 0),
     rect(width(), 1),
@@ -189,7 +190,38 @@ add([
 `width()`: The screen's width - it is a number   
 `height()`: The screen's height - it is a number 
 
+### 1/1/24
+I need to make my game end in 60 seconds and allow the user to restart the game by clicking the restart button. 
 
+``` JS
+wait(60, () => {
+    destroyAll("cat");
+    destroyAll("food");
+    add([
+        pos(100, 100),
+        rect(200, 200),
+        outline(1),
+        area(),
+        "button"
+    ])
+})
+```
+`wait(#, () => {})`: Actions go inside the `{}` and will appear after `#` seconds. 
+
+When the sprite with the tag `"button"` is clicked, the button go away and the game restart. 
+
+``` JS
+onClick("button", () => [
+    destroyAll("button"),
+    game()
+])
+``` 
+
+The `""` is the tag.   
+When there are multiple events for one action, use the `[]` and put the actions inside the `[]` after the `=>`. 
+
+
+I made my game into a function. The `wait()` is inside the function, so every time the function is called, the sprites will disappear in 60 seconds (look like the game ended) and pop up a restart button. When the user click on the restart button, the button go away and the game run again. 
 
 
 
