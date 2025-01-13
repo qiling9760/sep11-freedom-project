@@ -167,10 +167,10 @@ amongUsRed.onCollide("amongUs",() => {
     ]);
 })
 ```
-`rand()` will make a random value between 0 and the value in the parenthesis. 
+`rand()` will make a random value between 0 and the value in the parenthesis.
 
 ### 12/8/24
-I made 4 stationary rectangles that wrap around the map, so my sprite cannot go out of the screen. 
+I made 4 stationary rectangles that wrap around the map, so my sprite cannot go out of the screen.
 ```
 add([
     pos(0, 0),
@@ -182,12 +182,43 @@ add([
 ])
 ```
 
-`body({ isStatic: true })`: This makes the sprite stationary, which means other sprits cannot go through or push it foward. 
+`body({ isStatic: true })`: This makes the sprite stationary, which means other sprits cannot go through or push it foward.
 
-`rect(width(), 1)`: The first number is the width, the second number is the height. 
+`rect(width(), 1)`: The first number is the width, the second number is the height.
 
-`width()`: The screen's width - it is a number   
-`height()`: The screen's height - it is a number 
+`width()`: The screen's width - it is a number
+`height()`: The screen's height - it is a number
+
+### 1/11/25
+I made the end game part into a function, and make the `#` in `wait(#)` a variable, so I can change the time the game end later on.
+``` JS
+var time = 10;
+function end () {
+    wait(time, () => {
+        destroyAll("cat");
+        destroyAll("food");
+        destroyAll("dog");
+        add([
+            pos(100, 100),
+            rect(200, 200),
+            outline(1),
+            area(),
+            "button"
+        ])
+    })
+}
+```
+I tried to make a sprite called `dog`, so when my `cat` collide with the `dog`, the game will end.
+``` JS
+onCollide("cat","dog",() => {
+    time = 0;
+    end();
+});
+```
+The variable `time` changed to 0, so when the `end` function is called, the game will end immediately and not wait 10 seconds.
+
+
+
 
 
 
