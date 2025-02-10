@@ -94,7 +94,6 @@ Later, I changed my mind about the time limit for each round and made the game o
         destroyAll("cat");
         destroyAll("food");
         destroyAll("dog");
-        // clearInterval(addDog);
         add([
             pos(100, 100),
             rect(200, 200),
@@ -159,7 +158,22 @@ My goal on my tool is to figure out why the `dog` steal more points than I expec
 ### EDP
 I think I am still on the `planning` part and a little into the `create a prototype` part because I am still learning my tool, but I have created the basic of my game. I just need to build up and make my game more interesting. My next step is the `test and evaluate` part because I have multiple plans and ideas, but I need to test them to see which one should be added to my game and which one should be removed. 
 
+### Skills
+#### Communication 
+I am working this project with my firend, so when I want to change the original plan or add any new ideas, I need to talk to them to make sure everyone agrees. When I want to change the game to have no time limit, they supported me and gave me new ideas. The idea about the `dog` stealing `cat food` was from my teammates Katee. 
 
+#### Attention to detail
+I want to add multiple events for one action without writing the action over and over again. When learning the `onClick()`, the `Kaboom` documentation example only show one action for one event. 
+``` JS
+onClick("chest", (chest) => chest.open())
+```
+I looked at other components and realized the differece between an action that can do multiple events and an action that can only do one event, and that is the `[]`. When there are multiple events for one action, use the `[]` and put the actions inside the `[]`after the `=>`.
+``` JS
+onClick("button", () => [
+    destroyAll("button"),
+    game()
+])
+```
 
 Text
 
