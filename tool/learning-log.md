@@ -170,14 +170,8 @@ amongUsRed.onCollide("amongUs",() => {
 `rand()` will make a random value between 0 and the value in the parenthesis.
 
 ### 12/8/24
-<<<<<<< HEAD
 I made 4 stationary rectangles that wrap around the map, so my sprite cannot go out of the screen.
 ```
-=======
-I made 4 stationary rectangles that wrap around the map, so my sprite cannot go out of the screen.
-
-``` JS
->>>>>>> cea70dc1c272e4cd22702b7a447481e243e8cb8d
 add([
     pos(0, 0),
     rect(width(), 1),
@@ -254,6 +248,79 @@ onCollide("cat","dog",() => {
 });
 ```
 The variable `time` changed to 0, so when the `end` function is called, the game will end immediately and not wait 10 seconds.
+
+### 2/9/25
+I changed my idea about ending the game in 60 second. I want to make the game have no time limit, but allow the user to end the game when they collide on the `dog`.
+
+``` JS
+// rest game when cat touch dog
+    amongUsRed.onCollide("dog",() => {
+        destroyAll("cat");
+        destroyAll("food");
+        destroyAll("dog");
+        // clearInterval(addDog);
+        add([
+            pos(100, 100),
+            rect(200, 200),
+            outline(1),
+            area(),
+            "button"
+        ])
+    })
+    //
+```
+
+I also make sure when the `dog` touch the `wall`, it will respond again, so there won't be no obstacles in the rest of the game.
+
+``` JS
+// dog die when touch wall and respond again
+    onCollide("wall","dog",() => {
+        destroyAll("dog");
+        var y = rand(height());
+        add([
+            sprite("amongUs"),
+            pos(0, y),
+            move(0,200),
+            scale(0.05),
+            area(),
+            body(),
+            color(170, 75, 25),
+            z(1),
+            "dog"
+        ]);
+    });
+    //
+```
+
+I also want to make the `dog` able to steal points from the user when it collide with the cat food. But for some reasons, the `dog` steal more points than I expected each time it collide on the cat food.
+
+``` JS
+// collect cat food
+    amongUsRed.onCollide("food",() => {
+        destroyAll("food");
+        catFood.value += 1;
+        catFood.text = "Cat food:" + catFood.value;
+        var x = rand(width());
+        var y = rand(height());
+        add([
+            sprite("amongUs"),
+            pos(x, y),
+            scale(0.1),
+            area(),
+            body(),
+            color(120, 175, 25),
+            anchor("center"),
+            z(1),
+            "food"
+        ]);
+    })
+    //
+```
+I want to make the `dog` steal 1 point each time it collide with the cat food, but every time they collide, the dog steal more points than the previous collision. 
+
+
+
+
 
 
 

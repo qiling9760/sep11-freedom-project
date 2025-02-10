@@ -54,7 +54,9 @@ const catFood = add([
 ])
 //
 
-function game(){
+
+// game
+function game () {
     // cat
     const amongUsRed = add([
         sprite("amongUs"),
@@ -65,6 +67,21 @@ function game(){
         z(1),
         offscreen({pause:false}),
         "cat"
+    ]);
+    //
+
+    // dog
+    var y = rand(height());
+    const amongUsOrgange = add([
+        sprite("amongUs"),
+        pos(0, y),
+        move(0,200),
+        scale(0.05),
+        area(),
+        body(),
+        color(170, 75, 25),
+        z(1),
+        "dog"
     ]);
     //
 
@@ -115,7 +132,7 @@ function game(){
         catFood.value += 1;
         catFood.text = "Cat food:" + catFood.value;
         var x = rand(width());
-        var y = rand(height())
+        var y = rand(height());
         add([
             sprite("amongUs"),
             pos(x, y),
@@ -130,10 +147,59 @@ function game(){
     })
     //
 
-    // rest game in 60 seconds
-    wait(5, () => {
+    // add dog every 10 second
+    // var addDog = setTimeout(myFunction, 3000);
+    // function myFunction(){
+    //     var y = rand(height());
+    //     amongUsOrgange
+    // }
+    // //
+
+    // dog die when touch wall and respond again
+    onCollide("wall","dog",() => {
+        destroyAll("dog");
+        var y = rand(height());
+        add([
+            sprite("amongUs"),
+            pos(0, y),
+            move(0,200),
+            scale(0.05),
+            area(),
+            body(),
+            color(170, 75, 25),
+            z(1),
+            "dog"
+        ]);
+    });
+    //
+
+    // dog steal food
+    onCollide("dog","food",() => {
+        destroyAll("food");
+        catFood.value -= 1;
+        catFood.text = "Cat food:" + catFood.value;
+        var x = rand(width());
+        var y = rand(height());
+        add([
+            sprite("amongUs"),
+            pos(x, y),
+            scale(0.1),
+            area(),
+            body(),
+            color(120, 175, 25),
+            anchor("center"),
+            z(1),
+            "food"
+        ]);
+    })
+    //
+
+    // rest game when cat touch dog
+    amongUsRed.onCollide("dog",() => {
         destroyAll("cat");
         destroyAll("food");
+        destroyAll("dog");
+        // clearInterval(addDog);
         add([
             pos(100, 100),
             rect(200, 200),
@@ -143,17 +209,16 @@ function game(){
         ])
     })
     //
+
 }
+game()
 
-game();
-
-onClick("button", () =>
+// restart button
+onClick("button", () => [
+    destroyAll("button"),
     game()
-)
-
-onClick("button", () =>
-    destroyAll("button")
-)
+])
+//
 
 
 
