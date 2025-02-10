@@ -156,7 +156,10 @@ Everything works fine except the stealing points part, for some reasons, the `do
 ### Goal
 My goal on my tool is to figure out why the `dog` steal more points than I expected and fix it. I think I will ask on Slack to see if anyone can help me. If I have more time, I will try to add other obstacles or buff to the game.  
 
-### 
+### EDP
+I think I am still on the `planning` part and a little into the `create a prototype` part because I am still learning my tool, but I have created the basic of my game. I just need to build up and make my game more interesting. My next step is the `test and evaluate` part because I have multiple plans and ideas, but I need to test them to see which one should be added to my game and which one should be removed. 
+
+
 
 Text
 
