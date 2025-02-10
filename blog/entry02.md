@@ -106,7 +106,7 @@ add([
 My Freedom Project goal for the winder break is to figure out how to make the game end in 1 minute. I have searched on [kaboom](https://kaboomjs.com/), and I only found `timer()` that is related to time. I need to learn how it work, and what other functions it can combine with to make my game end in 1 min. 
 
 ## EDP
-I think I am on the **Brainstorm** and **Plan** steps of the EDP because I already have an idea of how my game should work, and I need to find code that I can use to make the game function like what I want. I have been combining the code I learned to make them perform what I want for my game. 
+I think I am on the **Brainstorm** and **Plan** steps of the EDP because I already have an idea of how my game should work, and I need to find code that I can use to make the game function like what I want. I have been combining the code I learned to make them perform what I want for my game. My next step is to continue **planing** and trying out possible codes that can work for my other parts of the game. Then, I will **create a prototype** that combines everything I learned to make a simple version of my game. 
 
 ## Skills
 ### Collaboration
