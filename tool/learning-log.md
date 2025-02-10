@@ -253,7 +253,7 @@ The variable `time` changed to 0, so when the `end` function is called, the game
 I changed my idea about ending the game in 60 second. I want to make the game have no time limit, but allow the user to end the game when they collide on the `dog`.
 
 ``` JS
-// rest game when cat touch dog
+// reset game when cat touch dog
     amongUsRed.onCollide("dog",() => {
         destroyAll("cat");
         destroyAll("food");
@@ -295,10 +295,10 @@ I also make sure when the `dog` touch the `wall`, it will respond again, so ther
 I also want to make the `dog` able to steal points from the user when it collide with the cat food. But for some reasons, the `dog` steal more points than I expected each time it collide on the cat food.
 
 ``` JS
-// collect cat food
-    amongUsRed.onCollide("food",() => {
+// dog steal food
+    onCollide("dog","food",() => {
         destroyAll("food");
-        catFood.value += 1;
+        catFood.value -= 1;
         catFood.text = "Cat food:" + catFood.value;
         var x = rand(width());
         var y = rand(height());
@@ -316,7 +316,7 @@ I also want to make the `dog` able to steal points from the user when it collide
     })
     //
 ```
-I want to make the `dog` steal 1 point each time it collide with the cat food, but every time they collide, the dog steal more points than the previous collision. 
+I want to make the `dog` steal 1 point each time it collide with the cat food, but after I restart the game, every time they collide, the dog steal more points than the previous collision. 
 
 
 
