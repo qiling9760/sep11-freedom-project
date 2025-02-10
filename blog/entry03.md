@@ -153,9 +153,10 @@ I also made the `dog` able to steal `cat food` and die then respond after it col
 
 Everything works fine except the stealing points part, for some reasons, the `dog` steal more points than I expected each time it collide on the `cat food`. I want the `dog` to steal 1 point each time it collide with the cat food, but after I restart the game, every time they collide, the dog steal more points than the previous collision.
 
+### Goal
+My goal on my tool is to figure out why the `dog` steal more points than I expected and fix it. I think I will ask on Slack to see if anyone can help me. If I have more time, I will try to add other obstacles or buff to the game.  
 
-
-
+### 
 
 Text
 
