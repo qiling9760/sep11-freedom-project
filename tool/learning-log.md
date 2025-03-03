@@ -318,6 +318,60 @@ I also want to make the `dog` able to steal points from the user when it collide
 ```
 I want to make the `dog` steal 1 point each time it collide with the cat food, but after I restart the game, every time they collide, the dog steal more points than the previous collision. 
 
+### 3/2/25
+Since resting the game just means clearing out the sprites from the screen, I made the destroying into a function. Whenever the user did something that will end the game, I will call the function. 
+``` JS
+function resetGame () {
+        destroyAll("cat");
+        destroyAll("food");
+        destroyAll("dog");
+        add([
+            pos(100, 100),
+            rect(200, 200),
+            outline(1),
+            area(),
+            "button"
+        ])
+    }
+```
+
+I learned how to make a timer from the dom challange. 
+``` JS
+// restart game in 10s
+    const timer = add([
+        text("Time: "),
+        pos(1000, 24),
+        z(2)
+    ])
+    var time = 10;
+    var timeGo = setInterval(function(){
+        time = time-1;
+        timer.text = "Time: " + time;
+    }, 1000);
+    var endGame = setTimeout(myFunction, 10000);
+    function myFunction(){
+        clearInterval(timeGo);
+        destroy(timer);
+        resetGame();
+    }
+```
+The `setInterval()` will subtract 1 from `time` every 1 second.   
+The text will show the `time` go down 1 after 1 second, so it is like a timer.   
+The `setTimeout()` will run the function after 10 seconds.  
+`clearInterval(timeGo)` means stop `setInterval()` from running, so it means stop the timer from counting after 10 seconds.   
+`resetGame()` will end the game after 10 seconds. 
+
+If the user touch the dog, the game will end imediately and not wait 10 seconds. 
+``` JS
+// rest game when cat touch dog
+    amongUsRed.onCollide("dog",() => {
+        clearTimeout(endGame);
+        destroy(timer);
+        resetGame ();
+    })
+//
+```
+When the user touch the dog, `clearTimeout(endGame)` end the timer imediately, and end the game. 
 
 
 
