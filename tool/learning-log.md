@@ -413,6 +413,22 @@ var endGame = setTimeout(myFunction, (time*1000));
 ```
 At first my  `rest game when cat touch dog` only has `clearTimeout(endGame)` and don't have `clearInterval(timeGo)` and `clearInterval(addDog)`. When I touch the dog, `clearTimeout(endGame)` prevent `endGame` from running, so `clearInterval(timeGo)` and `clearInterval(addDog)` did not run to stop the timer and adding dog, so I added these two into `rest game when cat touch dog`. 
 
+Because there are multiple dogs on the screen at the same time, I cannot use `destroyAll("dog")` or else all the dog will disappear and not only the dog that touch the wall will disappear.
+
+The [Kaboom Playground Collision](https://kaboomjs.com/play?example=collision) showed me how to destroy the sprite that you collide when there are multiple of them.
+``` JS
+player.onCollide("enemy", (enemy) => {
+	destroy(enemy)
+})
+```
+
+I know that the dog only moves right and touch the right wall, so I made the right wall into a variable, and use the method I learned from the playground to destroy the dog when it collide with the right wall. 
+``` JS
+rightWall.onCollide("dog",(dog) => {
+        destroy(dog);
+});
+```
+
 I also made the timer's x position to be `pos(width()-250, 25)` so no matter what size the screen is, the timer will be on the screen. 
        
 
