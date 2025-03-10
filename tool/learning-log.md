@@ -373,7 +373,48 @@ If the user touch the dog, the game will end imediately and not wait 10 seconds.
 ```
 When the user touch the dog, `clearTimeout(endGame)` end the timer imediately, and end the game. 
 
+### 3/9/25
+I made the game add a dog every 5 seconds, and stop adding when the game end. 
+``` JS
+// Add dog 2s
+    var addDog = setInterval(function(){
+        var y = rand(height());
+        add([
+            sprite("amongUs"),
+            pos(0, y),
+            move(0,200),
+            scale(0.05),
+            area(),
+            body(),
+            color(170, 75, 25),
+            z(1),
+            "dog"
+        ]);
+    }, 2000);
 
+var endGame = setTimeout(myFunction, (time*1000));
+    function myFunction(){
+        clearInterval(timeGo);
+        clearInterval(addDog); // <- this stop adding dog 
+        destroy(timer);
+        resetGame ();
+    }
+
+// rest game when cat touch dog
+    amongUsRed.onCollide("dog",() => {
+        clearTimeout(endGame);
+        clearInterval(timeGo);
+        clearInterval(addDog);
+        destroy(timer);
+        resetGame ();
+    })
+    //
+
+```
+At first my  `rest game when cat touch dog` only has `clearTimeout(endGame)` and don't have `clearInterval(timeGo)` and `clearInterval(addDog)`. When I touch the dog, `clearTimeout(endGame)` prevent `endGame` from running, so `clearInterval(timeGo)` and `clearInterval(addDog)` did not run to stop the timer and adding dog, so I added these two into `rest game when cat touch dog`. 
+
+I also made the timer's x position to be `pos(width()-250, 25)` so no matter what size the screen is, the timer will be on the screen. 
+       
 
 
 
