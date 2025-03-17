@@ -154,7 +154,7 @@ function game () {
     })
     //
 
-    // Add dog 5s
+    // Add dog 2s
     var addDog = setInterval(function(){
         var y = rand(height());
         add([
