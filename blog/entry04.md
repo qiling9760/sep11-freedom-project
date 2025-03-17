@@ -99,7 +99,13 @@ amongUsRed.onCollide("dog",() => {
 ```
 When the user collide with the dog, the `clearTimeout(endGame)` will prevent the `setTimeout` function from running, which means nothing will happen after 60 seconds. Then, the timer and game will rest. 
 
-At first, I only put `clearTimeout(endGame)` when the user collide with the dog. And the problem is since the `setTimeout` function did not run because of the `clearTimeout(endGame)`, the `clearInterval(timeGo)` and `clearInterval(addDog)` inside it did not run either. This made the timer continue counting, and the dog continue adding even after the game ended.  
+## EDP
+I think I am in the `Test and evaluate the prototype` part. My game has everything and is playable. I need to make sure it has no bugs and works well every time I rest the game. My next step is `Improve as needed`. I need to combine my code with my partner's code to build the full game. I also need to change all the sprite images, so it looks like a cat game. I will add extentions if I have more time. 
+
+## Skills
+
+### Debugging 
+At first, I only put `clearTimeout(endGame)` when the user collide with the dog. And the problem is since the `setTimeout` function will not run because of the `clearTimeout(endGame)`, the `clearInterval(timeGo)` and `clearInterval(addDog)` inside it will not run either. This made the timer continue counting, and the dog continue adding even after the game ended.  
 ``` JS
 amongUsRed.onCollide("dog",() => {
     clearTimeout(endGame);
@@ -107,7 +113,10 @@ amongUsRed.onCollide("dog",() => {
     resetGame ();
 })
 ```
+So, I added `clearInterval(timeGo)` and `clearInterval(addDog)` to make the timer stop counting and dog stop adding once the user collide with the dog. 
 
+### Logical reasoning
+I know that the number in the `setTimeout(function(),#)` means the function will run after `#` milliseconds, and 1 second is 1000 milliseconds. I can do `setTimeout(function(),time*1000)`, so I do not need to go change the number in the `setTimeout()` when I want to change the time. 
 
 
 
