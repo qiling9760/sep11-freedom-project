@@ -253,7 +253,7 @@ The variable `time` changed to 0, so when the `end` function is called, the game
 I changed my idea about ending the game in 60 second. I want to make the game have no time limit, but allow the user to end the game when they collide on the `dog`.
 
 ``` JS
-// rest game when cat touch dog
+// reset game when cat touch dog
     amongUsRed.onCollide("dog",() => {
         destroyAll("cat");
         destroyAll("food");
@@ -295,10 +295,10 @@ I also make sure when the `dog` touch the `wall`, it will respond again, so ther
 I also want to make the `dog` able to steal points from the user when it collide with the cat food. But for some reasons, the `dog` steal more points than I expected each time it collide on the cat food.
 
 ``` JS
-// collect cat food
-    amongUsRed.onCollide("food",() => {
+// dog steal food
+    onCollide("dog","food",() => {
         destroyAll("food");
-        catFood.value += 1;
+        catFood.value -= 1;
         catFood.text = "Cat food:" + catFood.value;
         var x = rand(width());
         var y = rand(height());
@@ -316,10 +316,121 @@ I also want to make the `dog` able to steal points from the user when it collide
     })
     //
 ```
-I want to make the `dog` steal 1 point each time it collide with the cat food, but every time they collide, the dog steal more points than the previous collision. 
+I want to make the `dog` steal 1 point each time it collide with the cat food, but after I restart the game, every time they collide, the dog steal more points than the previous collision. 
 
+### 3/2/25
+Since resting the game just means clearing out the sprites from the screen, I made the destroying into a function. Whenever the user did something that will end the game, I will call the function. 
+``` JS
+function resetGame () {
+        destroyAll("cat");
+        destroyAll("food");
+        destroyAll("dog");
+        add([
+            pos(100, 100),
+            rect(200, 200),
+            outline(1),
+            area(),
+            "button"
+        ])
+    }
+```
 
+I learned how to make a timer from the dom challange. 
+``` JS
+// restart game in 10s
+    const timer = add([
+        text("Time: "),
+        pos(1000, 24),
+        z(2)
+    ])
+    var time = 10;
+    var timeGo = setInterval(function(){
+        time = time-1;
+        timer.text = "Time: " + time;
+    }, 1000);
+    var endGame = setTimeout(myFunction, 10000);
+    function myFunction(){
+        clearInterval(timeGo);
+        destroy(timer);
+        resetGame();
+    }
+```
+The `setInterval()` will subtract 1 from `time` every 1 second.   
+The text will show the `time` go down 1 after 1 second, so it is like a timer.   
+The `setTimeout()` will run the function after 10 seconds.  
+`clearInterval(timeGo)` means stop `setInterval()` from running, so it means stop the timer from counting after 10 seconds.   
+`resetGame()` will end the game after 10 seconds. 
 
+If the user touch the dog, the game will end imediately and not wait 10 seconds. 
+``` JS
+// rest game when cat touch dog
+    amongUsRed.onCollide("dog",() => {
+        clearTimeout(endGame);
+        destroy(timer);
+        resetGame ();
+    })
+//
+```
+When the user touch the dog, `clearTimeout(endGame)` end the timer imediately, and end the game. 
+
+### 3/9/25
+I made the game add a dog every 5 seconds, and stop adding when the game end. 
+``` JS
+// Add dog 2s
+    var addDog = setInterval(function(){
+        var y = rand(height());
+        add([
+            sprite("amongUs"),
+            pos(0, y),
+            move(0,200),
+            scale(0.05),
+            area(),
+            body(),
+            color(170, 75, 25),
+            z(1),
+            "dog"
+        ]);
+    }, 2000);
+
+var endGame = setTimeout(myFunction, (time*1000));
+    function myFunction(){
+        clearInterval(timeGo);
+        clearInterval(addDog); // <- this stop adding dog 
+        destroy(timer);
+        resetGame ();
+    }
+
+// rest game when cat touch dog
+    amongUsRed.onCollide("dog",() => {
+        clearTimeout(endGame);
+        clearInterval(timeGo);
+        clearInterval(addDog);
+        destroy(timer);
+        resetGame ();
+    })
+    //
+
+```
+At first my  `rest game when cat touch dog` only has `clearTimeout(endGame)` and don't have `clearInterval(timeGo)` and `clearInterval(addDog)`. When I touch the dog, `clearTimeout(endGame)` prevent `endGame` from running, so `clearInterval(timeGo)` and `clearInterval(addDog)` did not run to stop the timer and adding dog, so I added these two into `rest game when cat touch dog`. 
+
+Because there are multiple dogs on the screen at the same time, I cannot use `destroyAll("dog")` or else all the dog will disappear and not only the dog that touch the wall will disappear.
+
+The [Kaboom Playground Collision](https://kaboomjs.com/play?example=collision) showed me how to destroy the sprite that you collide when there are multiple of them.
+``` JS
+player.onCollide("enemy", (enemy) => {
+	destroy(enemy)
+})
+```
+
+I know that the dog only moves right and touch the right wall, so I made the right wall into a variable, and use the method I learned from the playground to destroy the dog when it collide with the right wall. 
+``` JS
+rightWall.onCollide("dog",(dog) => {
+        destroy(dog);
+});
+```
+
+I also made the timer's x position to be `pos(width()-250, 25)` so no matter what size the screen is, the timer will be on the screen. 
+       
 
 
 
