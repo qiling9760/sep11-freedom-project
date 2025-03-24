@@ -431,8 +431,46 @@ rightWall.onCollide("dog",(dog) => {
 
 I also made the timer's x position to be `pos(width()-250, 25)` so no matter what size the screen is, the timer will be on the screen. 
        
+### 3/23/25
+I changed the background of my game by making the background image into a sprite and let the sprite cover up the whole screen. 
+``` JS
+loadSprite("background", "sprites/collectCatFoodBG.jpg");
+const background = add([
+    sprite("background"),
+    anchor("center"),
+    pos(center()),
+    scale(1),
+    fixed()
+]);
+```
+I also upload a cat food image and changed all my among us cat food to the real cat food. 
 
-
+I also created a catnip.
+``` JS
+// Catnip
+const amongUsPurple = add([
+    sprite("amongUs"),
+    pos(400,200),
+    scale(0.05),
+    area(),
+    body(),
+    color(128, 0, 128),
+    z(1),
+    "catnip"
+]);
+//
+```
+I tried to changed the time variable when the cat collect the catnip and change the time the game end, but it doesn't work. 
+``` JS
+// collect catnip
+amongUsRed.onCollide("catnip",() => {
+    destroyAll("catnip");
+    time += 3;
+    timer.text = "Time: " + time;
+})
+//
+```
+I searched online, and it says I cannot change the delay time of the `setTimeout()` after it starts, but I can end it and then create a new one. I tried multiple time but it failed. 
 
 
 
