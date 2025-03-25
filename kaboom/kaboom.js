@@ -3,8 +3,11 @@ kaboom();
 //
 
 // load a sprite from an image
-loadSprite("amongUs", "sprites/amongUsRed.jpg")
+loadSprite("amongUs", "sprites/amongUsRed.jpg");
+loadSprite("background", "sprites/background.jpg");
+loadSprite("catfood", "sprites/catFood.png");
 //
+
 
 // Walls to not let the sprite go out of the screen
 add([
@@ -46,24 +49,49 @@ const rightWall = add([
 
 // make a score
 const catFood = add([
-    text("Cat food: 0"),
+    text("Cat food: " + localStorage.getItem("catFood")),
     pos(25, 25),
-    { value: 0 },
     z(2)
 ])
+function noLocalStorage(){
+    if (localStorage.getItem("catFood") == null){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+if (noLocalStorage()){
+catFood.value = 0;
+} else {
+catFood.value= Number(localStorage.getItem("catFood"));
+}
+
+// localStorage.removeItem("catFood");
 //
 
 
 // game
 function game () {
     // variables
-    var time = 60;
+    var time = 10;
+    var x = rand(width());
+    var y = rand(height());
     //
+
+    // background
+    const background = add([
+        sprite("background"),
+        anchor("center"),
+        pos(center()),
+        scale(1),
+        fixed()
+      ]);
 
     // cat
     const amongUsRed = add([
         sprite("amongUs"),
-        pos(100, 400),
+        pos(width()/2, height()/2),
         area(),
         scale(0.1),
         body(),
@@ -88,18 +116,28 @@ function game () {
     ]);
     //
 
-    // Catnip
+    // // Catnip
+    // const amongUsPurple = add([
+    //     sprite("amongUs"),
+    //     pos(400,200),
+    //     scale(0.05),
+    //     area(),
+    //     body(),
+    //     color(128, 0, 128),
+    //     z(1),
+    //     "catnip"
+    // ]);
+    // //
 
 
     // cat food
-    const amongUsGreen = add([
-        sprite("amongUs"),
-        pos(650, 400),
+    const catfood = add([
+        sprite("catfood"),
+        pos(x, y),
         anchor("center"),
         scale(0.1),
         area(),
         body(),
-        color(120, 175, 25),
         z(1),
         "food"
     ]);
@@ -141,18 +179,27 @@ function game () {
         var x = rand(width());
         var y = rand(height());
         add([
-            sprite("amongUs"),
+            sprite("catfood"),
             pos(x, y),
             scale(0.1),
             area(),
             body(),
-            color(120, 175, 25),
             anchor("center"),
             z(1),
             "food"
         ]);
     })
     //
+
+    // // collect catnip
+    // amongUsRed.onCollide("catnip",() => {
+    //     destroyAll("catnip");
+    //     time += 3;
+    //     timer.text = "Time: " + time;
+    //     changeTime = true;
+    //     changeEndTime();
+    // })
+    // //
 
     // Add dog 2s
     var addDog = setInterval(function(){
@@ -182,12 +229,11 @@ function game () {
         var x = rand(width());
         var y = rand(height());
         add([
-            sprite("amongUs"),
+            sprite("catfood"),
             pos(x, y),
             scale(0.1),
             area(),
             body(),
-            color(120, 175, 25),
             anchor("center"),
             z(1),
             "food"
@@ -195,10 +241,18 @@ function game () {
     })
     //
 
+    // dog steal catnip
+    onCollide("dog","catnip",() => {
+        destroyAll("catnip");
+    })
+    //
+
+    // reset game
     function resetGame () {
         destroyAll("cat");
         destroyAll("food");
         destroyAll("dog");
+        destroyAll("catnip");
         add([
             pos(100, 100),
             rect(200, 200),
@@ -219,16 +273,17 @@ function game () {
         timer.text = "Time: " + time;
     }, 1000);
 
-    var endGame = setTimeout(myFunction, (time*1000));
-    function myFunction(){
+    var endGame = setTimeout(function(){
         clearInterval(timeGo);
         clearInterval(addDog);
         destroy(timer);
         resetGame ();
-    }
+    }, (time*1000));
+
 
     // rest game when cat touch dog
     amongUsRed.onCollide("dog",() => {
+        // clearTimeout(happy);
         clearTimeout(endGame);
         clearInterval(timeGo);
         clearInterval(addDog);
