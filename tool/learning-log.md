@@ -472,8 +472,45 @@ amongUsRed.onCollide("catnip",() => {
 ```
 I searched online, and it says I cannot change the delay time of the `setTimeout()` after it starts, but I can end it and then create a new one. I tried multiple time but it failed. 
 
+### 3/31/25
+I tried to save the cat food amount in the local browser by using `localStorage`, so when the user close the window, they still have the same amount of cat food they left off when they come back. 
+- `localStorage.setItem("catFood", catFood.value);` This save the value into a variable. The second blank is the value, and the first blank is the variable. 
+- `localStorage.getItem("catFood")` This get the value by calling the variable. 
+``` JS
+cat.onCollide("food",() => {
+    destroyAll("food");
+    catFood.value += 1;
+    localStorage.setItem("catFood", catFood.value);
+    catFood.text = "Cat food:" + localStorage.getItem("catFood");
+})
+```
+When the cat collide with the cat food, the cat food value will increadr by 1, and this value will saved into the variable `catFood` by `localStorage.setItem()`. 
 
+``` JS
+const catFood = add([
+    text("Cat food: " + localStorage.getItem("catFood")),
+    pos(25, 25),
+    z(2)
+])
+```
+The score board will show the amount of the cat food saved in the bowser by `localStorage.getItem("catFood")`.
 
+``` JS
+function noLocalStorage(){
+    if (localStorage.getItem("catFood") == null){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+if (noLocalStorage()){
+catFood.value = 0;
+} else {
+catFood.value= Number(localStorage.getItem("catFood"));
+}
+``` 
+The function checks if there is a value of cat food saved in the bowser. If yes, then use that value for the cat food amount. If no, then the cat food amount will be 0. 
 
 
 
