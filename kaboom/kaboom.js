@@ -3,9 +3,10 @@ kaboom();
 //
 
 // load a sprite from an image
-loadSprite("amongUs", "sprites/amongUsRed.jpg");
+loadSprite("dog", "sprites/dog.PNG");
 loadSprite("background", "sprites/background.jpg");
-loadSprite("catfood", "sprites/catFood.png");
+loadSprite("catfood", "sprites/catFood.PNG");
+loadSprite("starterCat", "sprites/roachCat.PNG");
 //
 
 
@@ -54,9 +55,9 @@ const catFood = add([
     z(2)
 ])
 function noLocalStorage(){
-    if (localStorage.getItem("catFood") == null){
+    if (localStorage.getItem("catFood") == null){ // no local storagev
       return true;
-    } else {
+    } else { // yes local storage
       return false;
     }
   }
@@ -74,7 +75,7 @@ catFood.value= Number(localStorage.getItem("catFood"));
 // game
 function game () {
     // variables
-    var time = 10;
+    var time = 30;
     var x = rand(width());
     var y = rand(height());
     //
@@ -89,11 +90,12 @@ function game () {
       ]);
 
     // cat
-    const amongUsRed = add([
-        sprite("amongUs"),
+    const cat = add([
+        sprite("starterCat"),
         pos(width()/2, height()/2),
         area(),
         scale(0.1),
+        rotate(270),
         body(),
         z(1),
         offscreen({pause:false}),
@@ -103,14 +105,13 @@ function game () {
 
     // dog
     var y = rand(height());
-    const amongUsOrgange = add([
-        sprite("amongUs"),
+    const dog = add([
+        sprite("dog"),
         pos(0, y),
         move(0,200),
-        scale(0.05),
+        scale(0.1),
         area(),
         body(),
-        color(170, 75, 25),
         z(1),
         "dog"
     ]);
@@ -120,7 +121,7 @@ function game () {
     // const amongUsPurple = add([
     //     sprite("amongUs"),
     //     pos(400,200),
-    //     scale(0.05),
+    //     scale(0.1),
     //     area(),
     //     body(),
     //     color(128, 0, 128),
@@ -145,33 +146,34 @@ function game () {
 
     // move cat
     onKeyDown("left", () => {
-            amongUsRed.move(-500, 0)
+        cat.move(-500, 0)
     })
+
     onKeyDown("a", () => {
-        amongUsRed.move(-500, 0)
+        cat.move(-500, 0)
     })
     onKeyDown("right", () => {
-            amongUsRed.move(500, 0)
+        cat.move(500, 0)
     })
     onKeyDown("d", () => {
-            amongUsRed.move(500, 0)
+        cat.move(500, 0)
     })
     onKeyDown("up",() => {
-            amongUsRed.move(0, -500)
+        cat.move(0, -500)
     })
     onKeyDown("w",() => {
-            amongUsRed.move(0, -500)
+        cat.move(0, -500)
     })
     onKeyDown("down",() => {
-            amongUsRed.move(0, 500)
+        cat.move(0, 500)
     })
     onKeyDown("s",() => {
-        amongUsRed.move(0, 500)
+        cat.move(0, 500)
     })
     //
 
     // collect cat food
-    amongUsRed.onCollide("food",() => {
+    cat.onCollide("food",() => {
         destroyAll("food");
         catFood.value += 1;
         localStorage.setItem("catFood", catFood.value);
@@ -192,7 +194,7 @@ function game () {
     //
 
     // // collect catnip
-    // amongUsRed.onCollide("catnip",() => {
+    // cat.onCollide("catnip",() => {
     //     destroyAll("catnip");
     //     time += 3;
     //     timer.text = "Time: " + time;
@@ -205,13 +207,12 @@ function game () {
     var addDog = setInterval(function(){
         var y = rand(height());
         add([
-            sprite("amongUs"),
+            sprite("dog"),
             pos(0, y),
             move(0,200),
-            scale(0.05),
+            scale(0.1),
             area(),
             body(),
-            color(170, 75, 25),
             z(1),
             "dog"
         ]);
@@ -282,7 +283,7 @@ function game () {
 
 
     // rest game when cat touch dog
-    amongUsRed.onCollide("dog",() => {
+    cat.onCollide("dog",() => {
         // clearTimeout(happy);
         clearTimeout(endGame);
         clearInterval(timeGo);
