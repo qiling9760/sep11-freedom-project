@@ -82,6 +82,8 @@ document.querySelector("#game").addEventListener("click",function(){
 })
 ```
 
+## EDP
+I am now on the `Improve as needed` step. I finished with my MVP. It is now a playable game. I can add more to this game such as making it more difficult or work on the catnip. My next step is `Communicate the results`. I can show my groupmates my project and ask them what else I should add on. And I can show my projects to my classmates and let them play it. 
 
 ## Skills
 ### Growth mindset
@@ -105,6 +107,11 @@ I made a function to check if there is a `localStorage` value for cat food. If t
 
 ### Collaboration 
 This project is a 4 people project, and we split it into 2 parts. The one that I am working on is part A, and the other part is part B. In this part A, I need to connect what I did to what my partner did, and then connect part A to part B. My partner has created a homepage to part A of the game using HTML, and I need to make it connect to Kaboom. After I connected the homepage to the game, I also added a link on the homepage to direct the player to part B of the game. 
+``` JS
+document.querySelector("#gamble").addEventListener("click",function(){
+    window.location.href = "https://kateek5417.github.io/sep11-cat-project", "_blank"; // go to part 2 of the game
+})
+```
 
 
 
