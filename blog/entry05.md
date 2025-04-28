@@ -2,7 +2,7 @@
 ##### 4/27/25
 
 ## Context 
-My game is an interactive game that allows the player to move a cat on the screen using keyboard keys to collect cat foods. The player needs to move the cat around to avoid the dogs that try to steal the cat food and collect as much cat food in 1 minute. The cat food that they collected can be used on another game created by my groupmates to get cats. 
+My game is an interactive game that allows the player to move a cat on the screen using keyboard keys to collect cat foods. The player needs to move the cat around to avoid the dogs that try to steal the cat food and collect as much cat food in 1 minute. The cat food that they collected can be used in another game created by my groupmates to get cats. 
 
 ## Tool
 ### Change the sprites 
