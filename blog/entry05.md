@@ -76,10 +76,11 @@ document.querySelector("#game").addEventListener("click",function(){
     .....
         game() // start the game function
     })
+
+    // start game
+    go("gameStart"); // start the scene when the button is clicked
 })
 ```
-
-
 
 
 ## Skills
@@ -103,7 +104,9 @@ catFood.value= Number(localStorage.getItem("catFood"));
 I made a function to check if there is a `localStorage` value for cat food. If there is, then the game will use the `localStorage` value as the starting point. If not, then the starting point will be 0. 
 
 ### Collaboration 
-This project is a 4 people project, and we split it into 2 parts. The one that I am working on was part A, and the other part is part B. In this part A, I need to connect what I did to what my partner did, and then connect part A to part B. My partner has created a homepage to part A of the game using HTML, and I need to make it connect to Kaboom. 
+This project is a 4 people project, and we split it into 2 parts. The one that I am working on is part A, and the other part is part B. In this part A, I need to connect what I did to what my partner did, and then connect part A to part B. My partner has created a homepage to part A of the game using HTML, and I need to make it connect to Kaboom. After I connected the homepage to the game, I also added a link on the homepage to direct the player to part B of the game. 
+
+
 
 
 [Previous](entry04.md) | [Next](entry06.md)
