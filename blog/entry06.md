@@ -29,7 +29,8 @@ While making the presentation and elevator pitch, my partner and I need to divid
 ### Leadership
 I took the lead when making the presentation. I told my partner what code we should show to our class and decided what time we meet up to make the slideshow. I also answered the audience's questions after the presentation. 
 
-
+## EDP
+I am now in the **communiate the results** stage. I finished my project and presented it to my classmates and other students in our school. I looked at other students' projects and give out/take in feedbacks. 
 
 
 [Previous](entry05.md) | [Next](entry07.md)
