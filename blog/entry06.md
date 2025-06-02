@@ -22,6 +22,12 @@ We should memorize our pitch and know what we need to present when we are saying
 
 It is also important that I need to change my pitch when presenting to different people. For example, when someone who come by is a person who took the computer science class before, I can shorten my part of explaining the code because they knew what they mean. If the person who I present to do not know about coding, I may need to explaining the code more easy to understand. 
 
+## Skills 
+### Communication 
+While making the presentation and elevator pitch, my partner and I need to divide the task. We talked about what should be include in our slides, and who should present what part. We need to communicate and come to an agreement. 
+
+### Leadership
+I took the lead when making the presentation. I told my partner what code we should show to our class and decided what time we meet up to make the slideshow. I also answered the audience's questions after the presentation. 
 
 
 
